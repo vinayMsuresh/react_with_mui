@@ -1,10 +1,12 @@
 import './App.css';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import MuiDialog from './components/MuiDialog';
-import MuiLoadingButton from './components/MuiLoadingButton';
-import MuiProgress from './components/MuiProgress';
-import MuiSkeleton from './components/MuiSkeleton';
+import { createTheme, colors, ThemeProvider } from '@mui/material';
+// import MuiDialog from './components/MuiDialog';
+// import MuiLoadingButton from './components/MuiLoadingButton';
+// import MuiProgress from './components/MuiProgress';
+// import MuiSkeleton from './components/MuiSkeleton';
+// import MuiTabs from './components/MuiTabs';
 // import MuiAlert from './components/MuiAlert';
 // import MuiSnackbar from './components/MuiSnackbar';
 // import MuiTable from './components/MuiTable';
@@ -32,13 +34,36 @@ import MuiSkeleton from './components/MuiSkeleton';
 // import MuiAutoComplete from './components/MuiAutoComplete';
 // import MuiLayout from './components/MuiLayout';
 import NavBar from './components/NavBar';
-import MuiPicker from './components/MuiPicker';
+import MuiResponsiveness from './components/MuiResponsiveness';
+// import MuiMasonry from './components/MuiMasonry';
+// import MuiPicker from './components/MuiPicker';
+// import MuiTimeLine from './components/MuiTimeLine';
+
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e',
+  },
+  palette:{
+    primary:{
+      main: colors.green[500],
+    },
+    neutrals:{
+      main: colors.grey[500],
+      darker: colors.grey[700],
+    }
+  }
+})
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className='App'>
-        <NavBar/>
-        <MuiPicker />
+        <MuiResponsiveness/>
+        {/* <NavBar/> */}
+        {/* <MuiMasonry/> */}
+        {/* <MuiTimeLine/> */}
+        {/* <MuiTabs/> */}
+        {/* <MuiPicker /> */}
         {/* <MuiLoadingButton/> */}
         {/* <MuiSkeleton/> */}
         {/* <MuiProgress/> */}
@@ -71,6 +96,7 @@ function App() {
         {/* <MuiTextBox /> */}
       </div>
     </LocalizationProvider>
+    </ThemeProvider>
   );
 }
 
